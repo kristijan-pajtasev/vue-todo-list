@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { type ToDoType } from '@/stores/toDoType.ts'
+import { computed } from 'vue'
 const props = defineProps({
   todos: {
     required: true,
@@ -18,17 +19,22 @@ const emit = defineEmits<{
 
 <template>
   <div class="flex flex-col justify-between h-full">
-    <TransitionGroup name="list" tag="ul" class="item-list">
+    <TransitionGroup name="list" tag="ul" class="item-list h-full overflow-auto">
       <li
         v-for="todo in props.todos"
         :key="todo.id"
-        class="py-4 border-b border-[#efefef]"
+        class="py-4 border-b border-[#efefef] flex flex-row gap-[0.5rem]"
         @click="emit('setSelectedToDo', todo.id)"
       >
-        <div class="mb-0 font-bold" :class="{ 'line-through': todo.isCompleted }">
-          {{ todo.title }}
+        <div>
+          <div class="mb-0 font-bold" :class="{ 'line-through': todo.isCompleted }">
+            {{ todo.title }}
+          </div>
+          <div>{{ todo.content }}</div>
         </div>
-        <div>{{ todo.content }}</div>
+        <div>
+          <a :href="'/todo/'+todo.id">-</a>
+        </div>
       </li>
     </TransitionGroup>
   </div>

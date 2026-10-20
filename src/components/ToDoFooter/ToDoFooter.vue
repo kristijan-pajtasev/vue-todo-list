@@ -24,8 +24,13 @@ const saveForm = () => {
 </script>
 
 <template>
-  <div class="px-4 py-2 bg-[#1976D2] text-white text-center" @click="openAddModal">
-    <div class="font-bold text-center">Add item</div>
+  <div class="h-full flex flex-row justify-center items-center px-4 py-2 border-t border-[#DDDDDD]">
+    <div
+      class="w-full h-full text-center flex flex-row justify-center items-center bg-[#1976D2] text-white rounded-full"
+      @click="openAddModal"
+    >
+      <div class="font-bold text-center">Add item</div>
+    </div>
   </div>
   <Teleport v-if="showModal" to="body">
     <div class="modalContainer" @click="showModal = false">
