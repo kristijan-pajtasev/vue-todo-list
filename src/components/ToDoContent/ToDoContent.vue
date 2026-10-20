@@ -26,7 +26,16 @@ const selectedToDo = computed(() => {
 const toggleCompleted = (todo: ToDoType) => {
   todoStore.updateTodo(todo.id, todo.title, todo.content, !todo.isCompleted)
 }
+const showEditTodo = ref(false)
 
+const editTitle = ref('')
+const editContent = ref('')
+const editTodo = () => {
+  if (!selectedToDo.value) return
+  editTitle.value = selectedToDo.value.title || ''
+  editContent.value = selectedToDo.value.content || ''
+  showEditTodo.value = true
+}
 </script>
 <template>
   <div class="bg-white w-full p-4">
@@ -43,7 +52,7 @@ const toggleCompleted = (todo: ToDoType) => {
           <div>
             <div><button @click="toggleCompleted(selectedToDo)">Mark as completed</button></div>
             <div>
-              <div><button>Edit</button></div>
+              <div><button @click="editTodo()">Edit</button></div>
               <div><button>Delete</button></div>
             </div>
           </div>
@@ -63,4 +72,22 @@ const toggleCompleted = (todo: ToDoType) => {
       <ToDoList :todos="filteredToDoList" @setSelectedToDo="setSelectedToDoId" />
     </div>
   </div>
+  <Teleport to="body" v-if="showEditTodo && selectedToDo">
+    <div class="top-0 bottom-0 left-0 right-0 fixed z-50 bg-[#cccccc66] w-full h-full">
+      <div class="w-[30rem] p-4 max-w-full bg-white rounded-xl overflow-hidden">
+        <div>
+          <label>title</label>
+          <input type="text" v-model="editTitle" />
+        </div>
+        <div>
+          <label>content</label>
+          <textarea v-model="editContent" />
+        </div>
+        <div>
+          <div><button>Cancel</button></div>
+          <div><button>Save</button></div>
+        </div>
+      </div>
+    </div>
+  </Teleport>
 </template>
