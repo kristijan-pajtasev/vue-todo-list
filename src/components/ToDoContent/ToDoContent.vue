@@ -66,24 +66,7 @@ const handleConfirmDelete = () => {
 <template>
   <div class="bg-white w-full p-4 flex flex-col">
     <!--    <div v-if="selectedToDoId && selectedToDo">-->
-    <!--      <div><button @click="selectedToDoId = undefined">All todos</button></div>-->
-    <!--      <div>-->
-    <!--        <div>-->
-    <!--          <h1 class="text-lg font-bold">{{ selectedToDo.title }}</h1>-->
-    <!--          <div class="text-sm text-[#999]">-->
-    <!--            {{ selectedToDo.isCompleted ? 'Completed' : 'Not Completed' }}-->
-    <!--          </div>-->
-    <!--          <hr class="my-4 border-[#ccc]" />-->
-    <!--          <div>{{ selectedToDo.content }}</div>-->
-    <!--          <div>-->
-    <!--            <div><button @click="toggleCompleted(selectedToDo)">Mark as completed</button></div>-->
-    <!--            <div>-->
-    <!--              <div><button @click="editTodo()">Edit</button></div>-->
-    <!--              <div><button @click="showConfirmDeleteForm = true">Delete</button></div>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
+
     <!--    </div>-->
     <!--    <div v-else class="h-full">-->
     <div>
