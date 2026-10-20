@@ -5,14 +5,15 @@ interface ToDo {
   id: number
   title: string
   content: string
+  isCompleted: boolean
 }
 
 export const useToDoStore = defineStore('todo', () => {
   const todos: Ref<ToDo[]> = ref([
-    { id: 1, title: 'Buy groceries', content: 'Milk, eggs, bread, and coffee' },
-    { id: 2, title: 'Finish Vue project', content: 'Wire up the todo store and components' },
-    { id: 3, title: 'Walk the dog', content: 'Evening walk around the park' },
-    { id: 4, title: 'Read a book', content: 'Continue reading chapter 5' },
+    { id: 1, title: 'Buy groceries', content: 'Milk, eggs, bread, and coffee', isCompleted: false },
+    { id: 2, title: 'Finish Vue project', content: 'Wire up the todo store and components', isCompleted: false },
+    { id: 3, title: 'Walk the dog', content: 'Evening walk around the park', isCompleted: false },
+    { id: 4, title: 'Read a book', content: 'Continue reading chapter 5', isCompleted: false },
   ])
 
   const addTodo = (title: string, content: string) => {
@@ -20,6 +21,7 @@ export const useToDoStore = defineStore('todo', () => {
       id: Math.round(Math.random() * 1000000000),
       title,
       content,
+      isCompleted: false,
     })
   }
 
