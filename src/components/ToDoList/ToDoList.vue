@@ -22,10 +22,22 @@ const filteredToDoList = computed(() => {
   <div>
     <input v-model="searchQuery" />
   </div>
-  <ul>
+  <TransitionGroup name="list" tag="ul" class="item-list">
     <li v-for="todo in filteredToDoList" :key="todo.id">
       <div>{{ todo.title }}</div>
       <div>{{ todo.content }}</div>
     </li>
-  </ul>
+  </TransitionGroup>
 </template>
+
+<style scoped>
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+</style>
