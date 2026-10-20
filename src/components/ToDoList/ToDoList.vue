@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { type ToDoType } from '@/stores/toDoType.ts'
-import { computed } from 'vue'
+import { type ToDoType } from '@/stores/toDoType.ts';
 const props = defineProps({
   todos: {
     required: true,
@@ -33,7 +32,8 @@ const emit = defineEmits<{
           <div>{{ todo.content }}</div>
         </div>
         <div>
-          <a :href="'/todo/'+todo.id">-</a>
+          <RouterLink
+            :to="{ path: `/todo/${todo.id}` }">-</RouterLink>
         </div>
       </li>
     </TransitionGroup>
