@@ -7,7 +7,12 @@ interface ToDo {
 }
 
 export const useCounterStore = defineStore('todo', () => {
-  const todo:Ref<ToDo[]> = ref([])
+  const todo:Ref<ToDo[]> = ref([
+    { title: 'Buy groceries', content: 'Milk, eggs, bread, and coffee' },
+    { title: 'Finish Vue project', content: 'Wire up the todo store and components' },
+    { title: 'Walk the dog', content: 'Evening walk around the park' },
+    { title: 'Read a book', content: 'Continue reading chapter 5' },
+  ])
 
   return { todo }
 })
