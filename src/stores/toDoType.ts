@@ -25,13 +25,14 @@ export const useToDoStore = defineStore('todo', () => {
     })
   }
 
-  const updateTodo = (id: number, title: string, content: string) => {
+  const updateTodo = (id: number, title: string, content: string, isCompleted: boolean) => {
     todos.value = todos.value.map((todo) => {
       if (todo.id !== id) return todo
       return {
         ...todo,
         title,
         content,
+        isCompleted,
       }
     })
   }
