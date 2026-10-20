@@ -41,5 +41,9 @@ export const useToDoStore = defineStore('todo', () => {
     todos.value = todos.value.filter((todo) => todo.id !== id)
   }
 
-  return { todos, addTodo, deleteTodo, updateTodo }
+  const getItemById = (id: number) => {
+    return todos.value.find((item) => item.id === id)
+  }
+
+  return { todos, addTodo, deleteTodo, updateTodo, getItemById }
 })
