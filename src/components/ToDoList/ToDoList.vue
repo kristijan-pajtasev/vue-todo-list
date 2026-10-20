@@ -6,13 +6,12 @@ const props = defineProps({
     type: Array<ToDoType>,
   },
 })
-
 </script>
 
 <template>
   <TransitionGroup name="list" tag="ul" class="item-list">
-    <li v-for="todo in props.todos" :key="todo.id">
-      <div>{{ todo.title }}</div>
+    <li v-for="todo in props.todos" :key="todo.id" class="py-4 border-b border-[#efefef]">
+      <div class="mb-0 font-bold" :class="{'line-through': todo.isCompleted}">{{ todo.title }}</div>
       <div>{{ todo.content }}</div>
     </li>
   </TransitionGroup>
