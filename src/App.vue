@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import ToDoList from '@/components/ToDoList/ToDoList.vue'
 import ToDoHeader from '@/components/ToDoHeader/ToDoHeader.vue'
+import ToDoContent from '@/components/ToDoContent/ToDoContent.vue'
 </script>
 
 <template>
+
   <ToDoHeader />
-  <ToDoList />
+  <ToDoContent />
 </template>
 
 <style scoped></style>

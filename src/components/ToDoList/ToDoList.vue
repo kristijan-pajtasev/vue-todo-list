@@ -1,7 +1,12 @@
 <script setup lang="ts">
-import { useToDoStore } from '@/stores/todo.ts'
+import { type ToDoType, useToDoStore } from '@/stores/toDoType.ts'
 import { computed, ref } from 'vue'
-
+const props = defineProps({
+  todos: {
+    required: true,
+    type: Array<ToDoType>,
+  },
+})
 const toDoStore = useToDoStore()
 console.log(toDoStore)
 console.log(toDoStore.todos)
@@ -23,7 +28,7 @@ const filteredToDoList = computed(() => {
     <input v-model="searchQuery" />
   </div>
   <TransitionGroup name="list" tag="ul" class="item-list">
-    <li v-for="todo in filteredToDoList" :key="todo.id">
+    <li v-for="todo in props.todos" :key="todo.id">
       <div>{{ todo.title }}</div>
       <div>{{ todo.content }}</div>
     </li>

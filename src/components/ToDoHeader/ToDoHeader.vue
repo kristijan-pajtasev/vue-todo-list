@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useToDoStore } from '@/stores/todo.ts'
+import { useToDoStore } from '@/stores/toDoType.ts'
 
 const showModal = ref(false)
 const todoStore = useToDoStore()

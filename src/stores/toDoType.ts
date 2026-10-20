@@ -1,7 +1,7 @@
 import { type Ref, ref } from 'vue'
 import { defineStore } from 'pinia'
 
-interface ToDo {
+export interface ToDoType {
   id: number
   title: string
   content: string
@@ -9,7 +9,7 @@ interface ToDo {
 }
 
 export const useToDoStore = defineStore('todo', () => {
-  const todos: Ref<ToDo[]> = ref([
+  const todos: Ref<ToDoType[]> = ref([
     { id: 1, title: 'Buy groceries', content: 'Milk, eggs, bread, and coffee', isCompleted: false },
     { id: 2, title: 'Finish Vue project', content: 'Wire up the todo store and components', isCompleted: false },
     { id: 3, title: 'Walk the dog', content: 'Evening walk around the park', isCompleted: false },
