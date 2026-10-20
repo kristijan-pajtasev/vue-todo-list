@@ -8,7 +8,7 @@ const props = defineProps({
   selectedToDoId: {
     required: false,
     type: Number,
-  }
+  },
 })
 
 const emit = defineEmits<{
@@ -17,19 +17,22 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <TransitionGroup name="list" tag="ul" class="item-list">
-    <li
-      v-for="todo in props.todos"
-      :key="todo.id"
-      class="py-4 border-b border-[#efefef]"
-      @click="emit('setSelectedToDo', todo.id)"
-    >
-      <div class="mb-0 font-bold" :class="{ 'line-through': todo.isCompleted }">
-        {{ todo.title }}
-      </div>
-      <div>{{ todo.content }}</div>
-    </li>
-  </TransitionGroup>
+  <div class="flex flex-col justify-between h-full">
+    <TransitionGroup name="list" tag="ul" class="item-list">
+      <li
+        v-for="todo in props.todos"
+        :key="todo.id"
+        class="py-4 border-b border-[#efefef]"
+        @click="emit('setSelectedToDo', todo.id)"
+      >
+        <div class="mb-0 font-bold" :class="{ 'line-through': todo.isCompleted }">
+          {{ todo.title }}
+        </div>
+        <div>{{ todo.content }}</div>
+      </li>
+    </TransitionGroup>
+    <div>footer</div>
+  </div>
 </template>
 
 <style scoped>

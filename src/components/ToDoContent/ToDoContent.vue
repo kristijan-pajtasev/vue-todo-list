@@ -34,7 +34,7 @@ const selectedToDo = computed(() => {
       <div>{{selectedToDo.content}}
       </div>
     </div>
-    <div v-else>
+    <div v-else class="h-full">
       <h1>My Todos</h1>
       <div class="my-4">
         <input
