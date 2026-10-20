@@ -23,55 +23,11 @@ const saveForm = () => {
 }
 </script>
 <template>
-  <div class="p-4 bg-[#EBEBEB]">
+  <div class="px-4 py-2 bg-[#EBEBEB]">
     <div class="flex flex-row items-center gap-2">
       <span class="w-[0.7rem] h-[0.7rem] rounded-full overflow-hidden bg-[#1976D2]" />
       <span class="font-bold">Todos</span>
     </div>
     <!--    <button @click="openAddModal">Add Todo</button>-->
   </div>
-  <Teleport v-if="showModal" to="body">
-    <div class="modalContainer" @click="showModal = false">
-      <div class="modalAddTodoCard" @click.stop>
-        <div>
-          <label>Title:</label>
-          <input v-model="title" />
-        </div>
-        <div>
-          <label>Content:</label>
-          <textarea v-model="content" />
-        </div>
-        <div>
-          <button @click="cancelForm">Cancel</button>
-          <button @click="saveForm">Save</button>
-        </div>
-      </div>
-    </div>
-  </Teleport>
 </template>
-
-<style scoped>
-.modalContainer {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-  background: #000000cc;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.modalAddTodoCard {
-  background: white;
-  border-radius: 10px;
-  padding: 16px;
-  width: 30rem;
-  max-width: 100%;
-}
-</style>
