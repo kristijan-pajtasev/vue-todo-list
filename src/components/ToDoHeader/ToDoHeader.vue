@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useToDoStore } from '@/stores/todo.ts'
 
 const showModal = ref(false)
+const todoStore = useToDoStore()
 const openAddModal = () => {
   showModal.value = true
 }
@@ -9,14 +11,15 @@ const title = ref('')
 const content = ref('')
 
 const cancelForm = () => {
-  title.value = ""
-  content.value = ""
+  title.value = ''
+  content.value = ''
   showModal.value = false
 }
 
 const saveForm = () => {
-  title.value = ""
-  content.value = ""
+  todoStore.addTodo(title.value, content.value),
+  title.value = ''
+  content.value = ''
   showModal.value = false
 }
 </script>

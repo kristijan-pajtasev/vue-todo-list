@@ -14,6 +14,12 @@ export const useToDoStore = defineStore('todo', () => {
     { id: 3, title: 'Walk the dog', content: 'Evening walk around the park' },
     { id: 4, title: 'Read a book', content: 'Continue reading chapter 5' },
   ])
+  const addTodo = (title: string, content: string) => {
+    todos.value.push({
+        id: Math.round(Math.random() * 1000000000),
+        title, content
+      })
+    }
 
-  return { todos }
+  return { todos, addTodo }
 })
