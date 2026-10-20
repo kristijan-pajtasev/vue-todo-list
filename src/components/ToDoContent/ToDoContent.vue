@@ -59,7 +59,7 @@ const showConfirmDeleteForm = ref(false);
 const handleConfirmDelete = () => {
   if(!!selectedToDo.value) {
     todoStore.deleteTodo(selectedToDo.value.id)
-    setSelectedToDoId(undefined);
+    selectedToDoId.value = undefined;
   }
 }
 </script>
