@@ -3,7 +3,10 @@ import App from '@/App.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [{ path: '/', component: App }],
+  routes: [
+    { path: '/', component: App },
+    { path: '/todo', component: App }
+  ],
 })
 
 export default router
