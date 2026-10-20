@@ -36,6 +36,32 @@ const editTodo = () => {
   editContent.value = selectedToDo.value.content || ''
   showEditTodo.value = true
 }
+
+const cancelEditForm = () => {
+  editTitle.value = ''
+  editContent.value = ''
+  showEditTodo.value = false
+}
+const saveEditForm = () => {
+  if (!selectedToDoId.value || !selectedToDo.value?.id) return
+  todoStore.updateTodo(
+    selectedToDo.value?.id,
+    editTitle.value,
+    editContent.value,
+    selectedToDo.value?.isCompleted,
+  )
+  editTitle.value = ''
+  editContent.value = ''
+  showEditTodo.value = false
+}
+
+const showConfirmDeleteForm = ref(false);
+const handleConfirmDelete = () => {
+  if(!!selectedToDo.value) {
+    todoStore.deleteTodo(selectedToDo.value.id)
+    setSelectedToDoId(undefined)
+  }
+}
 </script>
 <template>
   <div class="bg-white w-full p-4">
@@ -53,7 +79,7 @@ const editTodo = () => {
             <div><button @click="toggleCompleted(selectedToDo)">Mark as completed</button></div>
             <div>
               <div><button @click="editTodo()">Edit</button></div>
-              <div><button>Delete</button></div>
+              <div><button @click="showConfirmDeleteForm = true">Delete</button></div>
             </div>
           </div>
         </div>
@@ -84,8 +110,21 @@ const editTodo = () => {
           <textarea v-model="editContent" />
         </div>
         <div>
-          <div><button>Cancel</button></div>
-          <div><button>Save</button></div>
+          <div><button @click="cancelEditForm">Cancel</button></div>
+          <div><button @click="saveEditForm">Save</button></div>
+        </div>
+      </div>
+    </div>
+  </Teleport>
+  <Teleport to="body" v-if="showConfirmDeleteForm && selectedToDo">
+    <div class="top-0 bottom-0 left-0 right-0 fixed z-50 bg-[#cccccc66] w-full h-full">
+      <div class="w-[30rem] p-4 max-w-full bg-white rounded-xl overflow-hidden">
+        <div>
+          Are you sure you want to delete?
+        </div>
+        <div>
+          <div><button @click="showConfirmDeleteForm = false">Cancel</button></div>
+          <div><button @click="handleConfirmDelete">Save</button></div>
         </div>
       </div>
     </div>
