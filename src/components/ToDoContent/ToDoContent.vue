@@ -27,8 +27,12 @@ const selectedToDo = computed(() => {
 <template>
   <div class="bg-white w-full p-4">
     <div v-if="selectedToDoId && selectedToDo">
-      selected id: {{ selectedToDoId }}
-      <div>{{ selectedToDo }}</div>
+      <div><button @click="selectedToDoId = undefined">All todos</button></div>
+      <h1 class="text-lg font-bold">{{selectedToDo.title}}</h1>
+      <div class="text-sm text-[#999]">{{selectedToDo.isCompleted ? "Completed" : "Not Completed"}}</div>
+      <hr class="my-4 border-[#ccc]" />
+      <div>{{selectedToDo.content}}
+      </div>
     </div>
     <div v-else>
       <h1>My Todos</h1>
