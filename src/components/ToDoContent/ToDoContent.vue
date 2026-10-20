@@ -23,45 +23,7 @@ const setSelectedToDoId = (id: number) => {
 const selectedToDo = computed(() => {
   return todoStore.todos.find((todo) => todo.id === selectedToDoId.value)
 })
-const toggleCompleted = (todo: ToDoType) => {
-  todoStore.updateTodo(todo.id, todo.title, todo.content, !todo.isCompleted)
-}
-const showEditTodo = ref(false)
 
-const editTitle = ref('')
-const editContent = ref('')
-const editTodo = () => {
-  if (!selectedToDo.value) return
-  editTitle.value = selectedToDo.value.title || ''
-  editContent.value = selectedToDo.value.content || ''
-  showEditTodo.value = true
-}
-
-const cancelEditForm = () => {
-  editTitle.value = ''
-  editContent.value = ''
-  showEditTodo.value = false
-}
-const saveEditForm = () => {
-  if (!selectedToDoId.value || !selectedToDo.value?.id) return
-  todoStore.updateTodo(
-    selectedToDo.value?.id,
-    editTitle.value,
-    editContent.value,
-    selectedToDo.value?.isCompleted,
-  )
-  editTitle.value = ''
-  editContent.value = ''
-  showEditTodo.value = false
-}
-
-const showConfirmDeleteForm = ref(false)
-const handleConfirmDelete = () => {
-  if (!!selectedToDo.value) {
-    todoStore.deleteTodo(selectedToDo.value.id)
-    selectedToDoId.value = undefined
-  }
-}
 </script>
 <template>
   <div class="bg-white w-full p-4 flex flex-col">
@@ -83,35 +45,5 @@ const handleConfirmDelete = () => {
     <ToDoList :todos="filteredToDoList" @setSelectedToDo="setSelectedToDoId" class="overflow-y-auto h-full" />
     <!--    </div>-->
   </div>
-  <!--  <Teleport to="body" v-if="showEditTodo && selectedToDo">-->
-  <!--    <div class="top-0 bottom-0 left-0 right-0 fixed z-50 bg-[#cccccc66] w-full h-full">-->
-  <!--      <div class="w-[30rem] p-4 max-w-full bg-white rounded-xl overflow-hidden">-->
-  <!--        <div>-->
-  <!--          <label>title</label>-->
-  <!--          <input type="text" v-model="editTitle" />-->
-  <!--        </div>-->
-  <!--        <div>-->
-  <!--          <label>content</label>-->
-  <!--          <textarea v-model="editContent" />-->
-  <!--        </div>-->
-  <!--        <div>-->
-  <!--          <div><button @click="cancelEditForm">Cancel</button></div>-->
-  <!--          <div><button @click="saveEditForm">Save</button></div>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--  </Teleport>-->
-  <!--  <Teleport to="body" v-if="showConfirmDeleteForm && selectedToDo">-->
-  <!--    <div class="top-0 bottom-0 left-0 right-0 fixed z-50 bg-[#cccccc66] w-full h-full">-->
-  <!--      <div class="w-[30rem] p-4 max-w-full bg-white rounded-xl overflow-hidden">-->
-  <!--        <div>-->
-  <!--          Are you sure you want to delete?-->
-  <!--        </div>-->
-  <!--        <div>-->
-  <!--          <div><button @click="showConfirmDeleteForm = false">Cancel</button></div>-->
-  <!--          <div><button @click="handleConfirmDelete">Save</button></div>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--  </Teleport>-->
+
 </template>
