@@ -31,7 +31,6 @@ const emit = defineEmits<{
         <div>{{ todo.content }}</div>
       </li>
     </TransitionGroup>
-    <div>footer</div>
   </div>
 </template>
 
