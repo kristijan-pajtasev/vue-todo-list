@@ -17,15 +17,18 @@ const cancelForm = () => {
 }
 
 const saveForm = () => {
-  todoStore.addTodo(title.value, content.value),
-  title.value = ''
+  ;(todoStore.addTodo(title.value, content.value), (title.value = ''))
   content.value = ''
   showModal.value = false
 }
 </script>
 <template>
-  <div>
-    <button @click="openAddModal">Add Todo</button>
+  <div class="p-4 bg-[#EBEBEB]">
+    <div class="flex flex-row items-center gap-2">
+      <span class="w-[0.7rem] h-[0.7rem] rounded-full overflow-hidden bg-[#1976D2]" />
+      <span class="font-bold">Todos</span>
+    </div>
+    <!--    <button @click="openAddModal">Add Todo</button>-->
   </div>
   <Teleport v-if="showModal" to="body">
     <div class="modalContainer" @click="showModal = false">
