@@ -9,7 +9,7 @@ import ToDoFooter from '@/components/ToDoFooter/ToDoFooter.vue'
       <ToDoHeader />
     </div>
     <div class="h-full flex-[1] overflow-hidden">
-      <RouterView />
+      <RouterView class="h-full overflow-hidden" />
     </div>
     <div class="h-[3rem] shrink-0">
       <ToDoFooter />
