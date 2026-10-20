@@ -10,7 +10,6 @@ const props = defineProps({
 </script>
 
 <template>
-  <div>ToDo List</div>
   <TransitionGroup name="list" tag="ul" class="item-list">
     <li v-for="todo in props.todos" :key="todo.id">
       <div>{{ todo.title }}</div>

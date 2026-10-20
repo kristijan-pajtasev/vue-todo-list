@@ -18,8 +18,8 @@ const filteredToDoList = computed(() => {
 <template>
   <div class="bg-white w-full p-4">
     <h1>My Todos</h1>
-    <div>
-      <input v-model="searchQuery" />
+    <div class="my-4">
+      <input v-model="searchQuery" placeholder="Search..." class="bg-[#E3E3E3] px-4 py-1 rounded-md w-full overflow-hidden border border-[#ccc]" />
     </div>
 
     <ToDoList :todos="filteredToDoList" />
