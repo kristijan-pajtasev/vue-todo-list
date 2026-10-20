@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { type ToDoType } from '@/stores/toDoType.ts';
+import ArrowRight from '@/components/ArrowRight/ArrowRight.vue'
+import CompletedCheckmark from '@/components/CompletedCheckmark/CompletedCheckmark.vue'
 const props = defineProps({
   todos: {
     required: true,
@@ -22,10 +24,18 @@ const emit = defineEmits<{
       <li
         v-for="todo in props.todos"
         :key="todo.id"
-        class="py-4 border-b border-[#efefef] flex flex-row gap-[0.5rem]"
+        class="py-4 border-b border-[#efefef] flex flex-row gap-[1rem] items-center justify-between"
         @click="emit('setSelectedToDo', todo.id)"
       >
-        <div>
+        <div class="w-[1.5rem]">
+          <div v-if="todo.isCompleted">
+            <CompletedCheckmark />
+          </div>
+          <div v-else>
+            <div class="w-[1.4rem] h-[1.4rem] border border-[2px] border-[#636363] rounded-full" />
+          </div>
+        </div>
+        <div class="flex-[1]">
           <div class="mb-0 font-bold" :class="{ 'line-through': todo.isCompleted }">
             {{ todo.title }}
           </div>
@@ -33,7 +43,9 @@ const emit = defineEmits<{
         </div>
         <div>
           <RouterLink
-            :to="{ path: `/todo/${todo.id}` }">-</RouterLink>
+            :to="{ path: `/todo/${todo.id}` }">
+            <ArrowRight />
+          </RouterLink>
         </div>
       </li>
     </TransitionGroup>
