@@ -23,7 +23,6 @@ export const useToDoStore = defineStore('todo', () => {
       content,
       isCompleted: false,
     })
-    console.log('add', todos.value)
   }
 
   const updateTodo = (id: number, title: string, content: string, isCompleted: boolean) => {
@@ -53,7 +52,6 @@ export const useToDoStore = defineStore('todo', () => {
   }
 
   const getItemById = (id: number) => {
-    console.log(todos.value)
     return todos.value.find((item) => item.id === id)
   }
 

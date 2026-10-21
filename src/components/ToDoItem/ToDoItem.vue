@@ -16,7 +16,6 @@ if (!selectedItem.value) {
 }
 
 const toggleCompleted = (todo: ToDoType) => {
-  console.log('toggle completed')
   todoStore.updateTodo(todo.id, todo.title, todo.content, !todo.isCompleted)
 }
 const showEditTodo = ref(false)
