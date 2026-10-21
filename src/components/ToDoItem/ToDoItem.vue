@@ -112,7 +112,7 @@ const handleConfirmDelete = () => {
                     <span>Back to list</span></RouterLink
                   >
                 </div>
-                <h1 class="text-[1.5rem] font-bold">{{ selectedItem.title }}</h1>
+                <h1 class="text-[1.5rem] font-bold" data-testid="ItemTitle">{{ selectedItem.title }}</h1>
                 <div class="text-sm text-[#999]">
                   {{ selectedItem.isCompleted ? 'Completed' : 'Not Completed' }}
                 </div>
