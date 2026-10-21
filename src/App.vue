@@ -18,9 +18,6 @@ const showFooter = computed(() => {
     <div class="h-full flex-[1] overflow-hidden">
       <RouterView class="h-full overflow-hidden" />
     </div>
-    <div v-if="showFooter" class="h-[3rem] shrink-0">
-      <ToDoFooter />
-    </div>
   </div>
 </template>
 
