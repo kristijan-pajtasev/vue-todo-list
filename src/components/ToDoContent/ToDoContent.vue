@@ -37,7 +37,7 @@ const selectedToDo = computed(() => {
         <input
           v-model="searchQuery"
           placeholder="Search..."
-          class="bg-[#E3E3E3] px-4 py-1 rounded-md w-full overflow-hidden border border-[#ccc]"
+          class="bg-[#f4f4f4] px-4 py-1 rounded-md w-full overflow-hidden border border-[#ccc]"
         />
       </div>
     </div>
