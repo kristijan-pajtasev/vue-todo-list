@@ -33,7 +33,7 @@ const saveForm = () => {
     </div>
   </div>
   <Teleport v-if="showModal" to="body">
-    <div class="modalContainer" @click="showModal = false">
+    <div class="modalContainer bg-[#000000aa] backdrop-blur" @click="showModal = false">
       <div
         class="max-md:top-0 max-md:bottom-0 max-md:left-0 max-md:right-0 max-md:w-full max-md:h-full bg-white p-4 md:w-[40rem] md:max-w-full md:rounded-lg md:overflow-hidden"
         @click.stop

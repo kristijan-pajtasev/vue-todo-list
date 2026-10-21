@@ -64,7 +64,7 @@ const handleConfirmDelete = () => {
     <div class="bg-white w-full md:p-4 flex flex-col max-md:h-full md:bg-[#f4f4f4] md:h-full">
       <div class="flex flex-row gap-[1rem] md:w-[90rem] md:max-w-full md:m-auto h-full">
         <div class="hidden md:block"><ToDoListWithFilter /></div>
-        <div class="bg-white flex-1 md:p-4">
+        <div class="bg-white flex-1 md:p-4 md:rounded-lg md:overflow-hidden">
           <div class="flex flex-col h-full justify-between">
             <div>
               <div>
@@ -171,10 +171,13 @@ const handleConfirmDelete = () => {
   <!--  </div>-->
   <Teleport to="body" v-if="showEditTodo && selectedItem">
     <div
-      class="top-0 bottom-0 left-0 right-0 fixed z-50 bg-[#cccccc66] w-full h-full"
+      class="top-0 bottom-0 left-0 right-0 fixed z-50 bg-[#000000aa] backdrop-blur w-full h-full flex flex-row items-center justify-center"
       @click="showEditTodo = false"
     >
-      <div class="top-0 bottom-0 left-0 right-0 w-full h-full bg-white p-4" @click.stop>
+      <div
+        class="max-md:top-0 max-md:bottom-0 max-md:left-0 max-md:right-0 max-md:w-full max-md:h-full bg-white p-4 md:w-[40rem] md:max-w-full md:rounded-lg md:overflow-hidden md_m-auto"
+        @click.stop
+      >
         <div class="flex flex-col justify-between h-full">
           <div>
             <div class="text-[1.5rem] font-bold mb-[1rem]">New Todo</div>
