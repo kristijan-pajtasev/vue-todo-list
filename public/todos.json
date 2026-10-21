@@ -1,32 +1,32 @@
 [
   {
     "id": 1,
-    "title": "Get Peter some Ferrero Rocher",
-    "content": "Pick up a box of Ferrero Rocher from the store",
+    "title": "Buy groceries",
+    "content": "Milk, eggs, bread, and coffee",
     "isCompleted": false
   },
   {
     "id": 2,
-    "title": "Get Peter some Milka",
-    "content": "Grab a bar of Milka chocolate for Peter",
+    "title": "Finish Vue project",
+    "content": "Wire up the todo store and components",
     "isCompleted": false
   },
   {
     "id": 3,
-    "title": "Get Peter some Bajadera",
-    "content": "Find a box of Bajadera",
+    "title": "Walk the dog",
+    "content": "Evening walk around the park",
     "isCompleted": false
   },
   {
     "id": 4,
-    "title": "Get Peter some Lindt truffles",
-    "content": "Buy a pack of Lindt truffles as a treat for Peter",
+    "title": "Clean the house",
+    "content": "Vacuum, dust, and do the dishes",
     "isCompleted": false
   },
   {
     "id": 5,
-    "title": "Get Peter some Toblerone",
-    "content": "Pick up a Toblerone bar for Peter",
+    "title": "Read a book",
+    "content": "Spend an hour reading before bed",
     "isCompleted": false
   }
 ]
