@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { type ToDoType } from '@/stores/toDoType.ts';
+import { type ToDoType, useToDoStore } from '@/stores/toDoType.ts'
 import ArrowRight from '@/components/ArrowRight/ArrowRight.vue'
 import CompletedCheckmark from '@/components/CompletedCheckmark/CompletedCheckmark.vue'
+const todoStore = useToDoStore()
+
 const props = defineProps({
   todos: {
     required: true,
@@ -29,10 +31,13 @@ const emit = defineEmits<{
       >
         <div class="w-[1.5rem]">
           <div v-if="todo.isCompleted">
-            <CompletedCheckmark />
+            <CompletedCheckmark @click="todoStore.toggleIsToDoCompleted(todo.id)" />
           </div>
           <div v-else>
-            <div class="w-[1.4rem] h-[1.4rem] border border-[2px] border-[#636363] rounded-full" />
+            <div
+              @click="todoStore.toggleIsToDoCompleted(todo.id)"
+              class="w-[1.4rem] h-[1.4rem] border border-[2px] border-[#636363] rounded-full"
+            />
           </div>
         </div>
         <div class="flex-[1]">
@@ -42,8 +47,7 @@ const emit = defineEmits<{
           <div>{{ todo.content }}</div>
         </div>
         <div>
-          <RouterLink
-            :to="{ path: `/todo/${todo.id}` }">
+          <RouterLink :to="{ path: `/todo/${todo.id}` }">
             <ArrowRight />
           </RouterLink>
         </div>

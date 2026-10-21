@@ -45,6 +45,16 @@ export const useToDoStore = defineStore('todo', () => {
     })
   }
 
+  const toggleIsToDoCompleted = (id: number) => {
+    todos.value = todos.value.map((todo) => {
+      if (todo.id !== id) return todo
+      return {
+        ...todo,
+        isCompleted: !todo.isCompleted,
+      }
+    })
+  }
+
   const deleteTodo = (id: number) => {
     todos.value = todos.value.filter((todo) => todo.id !== id)
   }
@@ -54,5 +64,5 @@ export const useToDoStore = defineStore('todo', () => {
     return todos.value.find((item) => item.id === id)
   }
 
-  return { todos, addTodo, deleteTodo, updateTodo, getItemById }
+  return { todos, addTodo, deleteTodo, updateTodo, getItemById, toggleIsToDoCompleted }
 })
