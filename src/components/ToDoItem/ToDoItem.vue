@@ -62,6 +62,7 @@ const saveEditForm = (selectedItem: ToDoType) => {
   <div v-if="selectedItem" class="p-4 h-full">
     <div class="flex flex-col h-full">
       <div>
+        <div><RouterLink to="/todo">Back to todos</RouterLink></div>
         <h1 class="text-lg font-bold">{{ selectedItem.title }}</h1>
         <div class="text-sm text-[#999]">
           {{ selectedItem.isCompleted ? 'Completed' : 'Not Completed' }}
