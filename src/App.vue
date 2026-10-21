@@ -6,7 +6,6 @@ import { computed } from 'vue'
 const route = useRoute()
 
 const showFooter = computed(() => {
-  console.log(route.path, route.path === '' || route.path === '/' || route.path === '/todo')
   return route.path === '' || route.path === '/' || route.path === '/todo'
 })
 </script>
