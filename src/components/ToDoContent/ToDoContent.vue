@@ -20,17 +20,9 @@ const setSelectedToDoId = (id: number) => {
   selectedToDoId.value = id
 }
 
-const selectedToDo = computed(() => {
-  return todoStore.todos.find((todo) => todo.id === selectedToDoId.value)
-})
-
 </script>
 <template>
   <div class="bg-white w-full p-4 flex flex-col">
-    <!--    <div v-if="selectedToDoId && selectedToDo">-->
-
-    <!--    </div>-->
-    <!--    <div v-else class="h-full">-->
     <div>
       <h1>My Todos</h1>
       <div class="my-4">
