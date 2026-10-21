@@ -63,13 +63,59 @@ const handleConfirmDelete = () => {
   <div v-if="selectedItem" class="max-md:p-4 h-full">
     <div class="bg-white w-full md:p-4 flex flex-col max-md:h-full md:bg-[#f4f4f4] md:h-full">
       <div class="flex flex-row md:gap-[1rem] md:w-[90rem] md:max-w-full md:m-auto h-full">
-        <div class="hidden md:block max-md:w-full md:w-[20rem] shrink-0"><ToDoListWithFilter /></div>
+        <div class="hidden md:block max-md:w-full md:w-[20rem] shrink-0">
+          <ToDoListWithFilter />
+        </div>
         <div class="bg-white flex-1 md:p-4 md:rounded-lg md:overflow-hidden shrink-0">
           <div class="flex flex-col h-full justify-between">
             <div>
               <div>
-                <div><RouterLink to="/todo">Back to todos</RouterLink></div>
-                <h1 class="text-lg font-bold">{{ selectedItem.title }}</h1>
+                <div class="block md:hidden">
+                  <RouterLink to="/todo" class="text-sm text-[#999] cursor-pointer flex flex-row items-center">
+                    <span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="25 93.5 10 18"
+                      >
+                        <defs />
+                        <g />
+                        <g />
+                        <g />
+                        <g />
+                        <g />
+                        <g />
+                        <g />
+                        <g id="svg1" mask="url(#mask-for-svg11)">
+                          <g />
+                          <g />
+                          <g />
+                          <g />
+                          <g />
+                          <g />
+                          <g />
+                          <mask id="mask-for-svg11">
+                            <rect width="18" height="18" x="20" y="93.5" fill="#ffffff" />
+                          </mask>
+                          <g transform="matrix(0.75 0 0 0.75 20 93.5)">
+                            <path
+                              d="m15 6-6 6 6 6"
+                              color="rgb(55, 54, 77)"
+                              fill="none"
+                              stroke="#CCC"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2.5px"
+                            />
+                          </g>
+                        </g>
+                      </svg>
+                    </span>
+                    <span>Back to list</span></RouterLink
+                  >
+                </div>
+                <h1 class="text-[1.5rem] font-bold">{{ selectedItem.title }}</h1>
                 <div class="text-sm text-[#999]">
                   {{ selectedItem.isCompleted ? 'Completed' : 'Not Completed' }}
                 </div>
