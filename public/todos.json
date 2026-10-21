@@ -1,68 +1,32 @@
 [
   {
     "id": 1,
-    "title": "Buy groceries",
-    "content": "Milk, eggs, bread, and coffee",
+    "title": "Get Peter some Ferrero Rocher",
+    "content": "Pick up a box of Ferrero Rocher from the store",
     "isCompleted": false
   },
   {
     "id": 2,
-    "title": "Finish Vue project",
-    "content": "Wire up the todo store and components",
+    "title": "Get Peter some Milka",
+    "content": "Grab a bar of Milka chocolate for Peter",
     "isCompleted": false
   },
   {
     "id": 3,
-    "title": "Walk the dog",
-    "content": "Evening walk around the park",
+    "title": "Get Peter some Bajadera",
+    "content": "Find a box of Bajadera",
     "isCompleted": false
   },
   {
     "id": 4,
-    "title": "Read a book",
-    "content": "Continue reading chapter 5",
+    "title": "Get Peter some Lindt truffles",
+    "content": "Buy a pack of Lindt truffles as a treat for Peter",
     "isCompleted": false
   },
   {
     "id": 5,
-    "title": "Read a book",
-    "content": "Continue reading chapter 5",
-    "isCompleted": false
-  },
-  {
-    "id": 6,
-    "title": "Read a book",
-    "content": "Continue reading chapter 5",
-    "isCompleted": false
-  },
-  {
-    "id": 7,
-    "title": "Read a book",
-    "content": "Continue reading chapter 5",
-    "isCompleted": false
-  },
-  {
-    "id": 8,
-    "title": "Read a book",
-    "content": "Continue reading chapter 5",
-    "isCompleted": false
-  },
-  {
-    "id": 9,
-    "title": "Read a book",
-    "content": "Continue reading chapter 5",
-    "isCompleted": false
-  },
-  {
-    "id": 10,
-    "title": "Read a book",
-    "content": "Continue reading chapter 5",
-    "isCompleted": false
-  },
-  {
-    "id": 11,
-    "title": "Read a book",
-    "content": "Continue reading chapter 5",
+    "title": "Get Peter some Toblerone",
+    "content": "Pick up a Toblerone bar for Peter",
     "isCompleted": false
   }
 ]
