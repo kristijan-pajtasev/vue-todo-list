@@ -62,8 +62,8 @@ const handleConfirmDelete = () => {
 <template>
   <div v-if="selectedItem" class="max-md:p-4 h-full">
     <div class="bg-white w-full md:p-4 flex flex-col max-md:h-full md:bg-[#f4f4f4] md:h-full">
-      <div class="flex flex-row gap-[1rem] md:w-[90rem] md:max-w-full md:m-auto h-full">
-        <div class="hidden md:block w-[20rem] shrink-0"><ToDoListWithFilter /></div>
+      <div class="flex flex-row md:gap-[1rem] md:w-[90rem] md:max-w-full md:m-auto h-full">
+        <div class="hidden md:block max-md:w-full md:w-[20rem] shrink-0"><ToDoListWithFilter /></div>
         <div class="bg-white flex-1 md:p-4 md:rounded-lg md:overflow-hidden shrink-0">
           <div class="flex flex-col h-full justify-between">
             <div>
