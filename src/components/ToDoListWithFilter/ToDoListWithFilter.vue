@@ -26,7 +26,7 @@ const setSelectedToDoId = (id: number) => {
   >
     <div class="flex-1 overflow-hidden flex flex-col">
       <div class="shrink-0">
-        <h1>My Todos</h1>
+        <h1 class="font-bold text-[1.5rem]">My Todos</h1>
         <div class="my-4">
           <input
             v-model="searchQuery"
