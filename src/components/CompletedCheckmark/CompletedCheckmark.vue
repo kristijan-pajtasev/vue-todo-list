@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import { useId } from 'vue'
+
+const uid = useId()
+const maskId = `mask-for-svg11-${uid}`
+</script>
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -14,9 +20,9 @@
     <g />
     <g />
     <g />
-    <g id="span1">
+    <g :id="`span1-${uid}`">
       <g><rect width="24" height="24" x="24" y="254" fill="rgb(60, 118, 46)" rx="12" ry="12" /></g>
-      <g id="svg1" mask="url(#mask-for-svg11)">
+      <g :id="`svg1-${uid}`" :mask="`url(#${maskId})`">
         <g />
         <g />
         <g />
@@ -24,7 +30,7 @@
         <g />
         <g />
         <g />
-        <mask id="mask-for-svg11">
+        <mask :id="maskId">
           <rect width="14" height="14" x="29" y="259" fill="#ffffff" />
         </mask>
         <g transform="matrix(0.583333 0 0 0.583333 29 259)">
