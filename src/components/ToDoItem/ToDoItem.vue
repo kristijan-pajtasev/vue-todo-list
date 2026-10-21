@@ -234,12 +234,30 @@ const handleConfirmDelete = () => {
     <!--    </div>-->
   </Teleport>
   <Teleport to="body" v-if="showConfirmDeleteForm && selectedItem">
-    <div class="top-0 bottom-0 left-0 right-0 fixed z-50 bg-[#cccccc66] w-full h-full">
-      <div class="w-[30rem] p-4 max-w-full bg-white rounded-xl overflow-hidden">
-        <div>Are you sure you want to delete?</div>
-        <div>
-          <div><button @click="showConfirmDeleteForm = false">Cancel</button></div>
-          <div><button @click="handleConfirmDelete">Save</button></div>
+    <div
+      class="top-0 bottom-0 left-0 right-0 fixed z-50 bg-[#000000aa] backdrop-blur w-full h-full flex flex-row items-center justify-center"
+    >
+      <div
+        class="max-md:top-0 max-md:bottom-0 max-md:left-0 max-md:right-0 max-md:w-full max-md:h-full bg-white p-4 md:w-[40rem] md:max-w-full md:rounded-lg md:overflow-hidden md_m-auto"
+      >
+        <div class="text-center text-[1.5rem]">Are you sure you want to delete?</div>
+        <div class="border-t border-[#f4f4f4] flex flex-col gap-[0.5rem] mt-[1rem]">
+          <div>
+            <button
+              class="cursor-pointer p-1 font-bold w-full h-full text-center flex flex-row justify-center items-center border border-[#707070] rounded-full"
+              @click="showConfirmDeleteForm = false"
+            >
+              Cancel
+            </button>
+          </div>
+          <div>
+            <button
+              class="cursor-pointer p-1 font-bold w-full h-full text-center flex flex-row justify-center items-center bg-[#1976D2] text-white rounded-full"
+              @click="handleConfirmDelete"
+            >
+              Confirm
+            </button>
+          </div>
         </div>
       </div>
     </div>
