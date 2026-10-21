@@ -34,7 +34,10 @@ const saveForm = () => {
   </div>
   <Teleport v-if="showModal" to="body">
     <div class="modalContainer" @click="showModal = false">
-      <div class="top-0 bottom-0 left-0 right-0 w-full h-full bg-white p-4" @click.stop>
+      <div
+        class="max-md:top-0 max-md:bottom-0 max-md:left-0 max-md:right-0 max-md:w-full max-md:h-full bg-white p-4 md:w-[40rem] md:max-w-full md:rounded-lg md:overflow-hidden"
+        @click.stop
+      >
         <div class="flex flex-col justify-between h-full">
           <div>
             <div class="text-[1.5rem] font-bold mb-[1rem]">New Todo</div>
@@ -56,15 +59,15 @@ const saveForm = () => {
             </div>
             <div></div>
           </div>
-          <div class="border-t border-[#f4f4f4] flex flex-col gap-[0.5rem]">
+          <div class="border-t border-[#f4f4f4] flex flex-col gap-[0.5rem] md:mt-[1rem]">
             <button
-              class="p-1 font-bold w-full h-full text-center flex flex-row justify-center items-center bg-[#1976D2] text-white rounded-full"
+              class="cursor-pointer p-1 font-bold w-full h-full text-center flex flex-row justify-center items-center bg-[#1976D2] text-white rounded-full"
               @click="saveForm"
             >
               Save
             </button>
             <button
-              class="p-1 font-bold w-full h-full text-center flex flex-row justify-center items-center border border-[#707070] rounded-full"
+              class="cursor-pointer p-1 font-bold w-full h-full text-center flex flex-row justify-center items-center border border-[#707070] rounded-full"
               @click="cancelForm"
             >
               Cancel
