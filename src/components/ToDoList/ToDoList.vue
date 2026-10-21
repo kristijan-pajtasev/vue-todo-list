@@ -44,7 +44,7 @@ const emit = defineEmits<{
           <div class="mb-0 font-bold" :class="{ 'line-through': todo.isCompleted }">
             {{ todo.title }}
           </div>
-          <div>{{ todo.content }}</div>
+          <div class="line-clamp-1 text-ellipsis">{{ todo.content }}</div>
         </div>
         <div>
           <RouterLink :to="{ path: `/todo/${todo.id}` }">
