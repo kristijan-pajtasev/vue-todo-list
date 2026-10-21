@@ -2,10 +2,8 @@
 import { useRoute, useRouter } from 'vue-router'
 import { computed, ref } from 'vue'
 import { type ToDoType, useToDoStore } from '@/stores/toDoType.ts'
-import ToDoList from '@/components/ToDoList/ToDoList.vue'
 import ToDoListWithFilter from '@/components/ToDoListWithFilter/ToDoListWithFilter.vue'
 
-// Inicijalizacija route objekta
 const route = useRoute()
 const router = useRouter()
 const todoStore = useToDoStore()
