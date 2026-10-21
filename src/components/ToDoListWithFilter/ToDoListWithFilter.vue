@@ -22,10 +22,10 @@ const setSelectedToDoId = (id: number) => {
 </script>
 <template>
   <div
-    class="bg-white md:p-4 rounded-lg overflow-hidden h-full flex flex-col justify-between gap-[0.5rem] overflow-hidden"
+    class="bg-white md:p-4 rounded-lg overflow-hidden h-full flex flex-col gap-[0.5rem]"
   >
-    <div class="flex-1 h-full overflow-hidden">
-      <div class="">
+    <div class="flex-1 overflow-hidden flex flex-col">
+      <div class="shrink-0">
         <h1>My Todos</h1>
         <div class="my-4">
           <input
@@ -35,12 +35,8 @@ const setSelectedToDoId = (id: number) => {
           />
         </div>
       </div>
-      <div class="flex-1 overflow-hidden max-md:h-full">
-        <ToDoList
-          :todos="filteredToDoList"
-          @setSelectedToDo="setSelectedToDoId"
-          class="overflow-y-auto h-full"
-        />
+      <div class="flex-1 overflow-hidden">
+        <ToDoList :todos="filteredToDoList" @setSelectedToDo="setSelectedToDoId" class="h-full" />
       </div>
     </div>
     <AddToDoButtonAndModal />
