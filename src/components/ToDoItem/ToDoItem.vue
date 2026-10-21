@@ -60,27 +60,53 @@ const saveEditForm = (selectedItem: ToDoType) => {
 <template>
   <!--  <div><button @click="selectedItemId = undefined">All todos</button></div>-->
   <div v-if="selectedItem" class="p-4 h-full">
-    <div class="flex flex-col h-full">
-      <div>
-        <div><RouterLink to="/todo">Back to todos</RouterLink></div>
-        <h1 class="text-lg font-bold">{{ selectedItem.title }}</h1>
-        <div class="text-sm text-[#999]">
-          {{ selectedItem.isCompleted ? 'Completed' : 'Not Completed' }}
-        </div>
-        <hr class="my-4 border-[#ccc]" />
-      </div>
-      <div>{{ selectedItem.content }}</div>
+    <div class="flex flex-col h-full justify-between">
       <div>
         <div>
-          <button @click="toggleCompleted(selectedItem)">
+          <div><RouterLink to="/todo">Back to todos</RouterLink></div>
+          <h1 class="text-lg font-bold">{{ selectedItem.title }}</h1>
+          <div class="text-sm text-[#999]">
+            {{ selectedItem.isCompleted ? 'Completed' : 'Not Completed' }}
+          </div>
+          <hr class="my-4 border-[#ccc]" />
+        </div>
+        <div>{{ selectedItem.content }}</div>
+      </div>
+      <div class="border-t border-[#f4f4f4] flex flex-col gap-[0.5rem]">
+        <div>
+          <button
+            class="cursor-pointer p-1 font-bold w-full h-full text-center flex flex-row justify-center items-center bg-[#1976D2] text-white rounded-full"
+            @click="toggleCompleted(selectedItem)"
+          >
             Mark as {{ selectedItem?.isCompleted ? 'incomplete' : 'completed' }}
           </button>
         </div>
-        <div>
-          <div><button @click="editTodo(selectedItem)">Edit</button></div>
-          <!--          <div><button @click="showConfirmDeleteForm = true">Delete</button></div>-->
+        <div class="flex flex-row gap-[0.5rem]">
+          <button
+            class="cursor-pointer p-1 font-bold w-full h-full text-center flex flex-row justify-center items-center bg-[#1976D2] text-white rounded-full"
+            @click="saveEditForm(selectedItem)"
+          >
+            Save
+          </button>
+          <button
+            class="cursor-pointer p-1 font-bold w-full h-full text-center flex flex-row justify-center items-center border border-[#707070] rounded-full"
+            @click="cancelEditForm"
+          >
+            Cancel
+          </button>
         </div>
       </div>
+      <!--      <div>-->
+      <!--        <div>-->
+      <!--          <button @click="toggleCompleted(selectedItem)">-->
+      <!--            Mark as {{ selectedItem?.isCompleted ? 'incomplete' : 'completed' }}-->
+      <!--          </button>-->
+      <!--        </div>-->
+      <!--        <div>-->
+      <!--          <div><button @click="editTodo(selectedItem)">Edit</button></div>-->
+      <!--          &lt;!&ndash;          <div><button @click="showConfirmDeleteForm = true">Delete</button></div>&ndash;&gt;-->
+      <!--        </div>-->
+      <!--      </div>-->
     </div>
   </div>
   <Teleport to="body" v-if="showEditTodo && selectedItem">
