@@ -83,22 +83,65 @@ const saveEditForm = (selectedItem: ToDoType) => {
     </div>
   </div>
   <Teleport to="body" v-if="showEditTodo && selectedItem">
-    <div class="top-0 bottom-0 left-0 right-0 fixed z-50 bg-[#cccccc66] w-full h-full">
-      <div class="w-[30rem] p-4 max-w-full bg-white rounded-xl overflow-hidden">
-        <div>
-          <label>title</label>
-          <input type="text" v-model="editTitle" />
-        </div>
-        <div>
-          <label>content</label>
-          <textarea v-model="editContent" />
-        </div>
-        <div>
-          <div><button @click="cancelEditForm">Cancel</button></div>
-          <div><button @click="saveEditForm(selectedItem)">Save</button></div>
+    <div
+      class="top-0 bottom-0 left-0 right-0 fixed z-50 bg-[#cccccc66] w-full h-full"
+      @click="showEditTodo = false"
+    >
+      <div class="top-0 bottom-0 left-0 right-0 w-full h-full bg-white p-4" @click.stop>
+        <div class="flex flex-col justify-between h-full">
+          <div>
+            <div class="text-[1.5rem] font-bold mb-[1rem]">New Todo</div>
+            <div class="mb-[1rem]">
+              <label class="font-bold mb-[0.5rem] block" for="title">Title:</label>
+              <input
+                class="p-2 bg-[#f4f4f4] border border-[#707070] rounded-lg overflow-hidden w-full"
+                id="title"
+                v-model="editTitle"
+              />
+            </div>
+            <div>
+              <label class="font-bold mb-[0.5rem] block" for="content">Content:</label>
+              <textarea
+                class="p-2 bg-[#f4f4f4] border border-[#707070] rounded-lg overflow-hidden w-full resize-none h-[5rem]"
+                id="content"
+                v-model="editContent"
+              />
+            </div>
+            <div></div>
+          </div>
+          <div class="border-t border-[#f4f4f4] flex flex-col gap-[0.5rem]">
+            <button
+              class="p-1 font-bold w-full h-full text-center flex flex-row justify-center items-center bg-[#1976D2] text-white rounded-full"
+              @click="saveEditForm(selectedItem)"
+            >
+              Save
+            </button>
+            <button
+              class="p-1 font-bold w-full h-full text-center flex flex-row justify-center items-center border border-[#707070] rounded-full"
+              @click="cancelEditForm"
+            >
+              Cancel
+            </button>
+          </div>
         </div>
       </div>
     </div>
+    <!--    <div class="top-0 bottom-0 left-0 right-0 fixed z-50 bg-[#cccccc66] w-full h-full">-->
+    <!--      <div class="w-[30rem] p-4 max-w-full bg-white rounded-xl overflow-hidden">-->
+    <!--        <div>-->
+    <!--          <label>title</label>-->
+    <!--          <input type="text" v-model="editTitle" />-->
+    <!--        </div>-->
+    <!--        <div>-->
+    <!--          <label>content</label>-->
+    <!--          <textarea v-model="editContent" />-->
+    <!--        </div>-->
+    <!--        <div>-->
+    <!--          <div><button @click="cancelEditForm">Cancel</button></div>-->
+    <!--          <div><button @click="saveEditForm(selectedItem)">Save</button></div>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </div>-->
   </Teleport>
   <!--  <Teleport to="body" v-if="showConfirmDeleteForm && selectedItem">-->
   <!--    <div class="top-0 bottom-0 left-0 right-0 fixed z-50 bg-[#cccccc66] w-full h-full">-->
