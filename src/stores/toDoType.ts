@@ -9,12 +9,43 @@ export interface ToDoType {
 }
 
 export const useToDoStore = defineStore('todo', () => {
-  const todos: Ref<ToDoType[]> = ref([])
-
-  onMounted(async () => {
-    const req = await fetch('/todos.json');
-    todos.value = await req.json();
-  })
+  const todos: Ref<ToDoType[]> = ref([
+    {
+      id: 1,
+      title: 'Buy groceries',
+      content: 'Milk, eggs, bread, and coffee',
+      isCompleted: false,
+    },
+    {
+      id: 2,
+      title: 'Finish Vue project',
+      content: 'Wire up the todo store and components',
+      isCompleted: false,
+    },
+    {
+      id: 3,
+      title: 'Walk the dog',
+      content: 'Evening walk around the park',
+      isCompleted: false,
+    },
+    {
+      id: 4,
+      title: 'Clean the house',
+      content: 'Vacuum, dust, and do the dishes',
+      isCompleted: false,
+    },
+    {
+      id: 5,
+      title: 'Read a book',
+      content: 'Spend an hour reading before bed',
+      isCompleted: false,
+    },
+  ])
+  //
+  // onMounted(async () => {
+  //   const req = await fetch('/todos.json');
+  //   todos.value = await req.json();
+  // })
 
   const addTodo = (title: string, content: string) => {
     todos.value.push({
